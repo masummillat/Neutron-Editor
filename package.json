@@ -1,7 +1,7 @@
 {
-  "name": "neutron-editor",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@masummillat/neutron-editor",
+  "private": false,
+  "version": "0.0.1",
   "type": "module",
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.js",
@@ -9,6 +9,14 @@
   "files": [
     "dist"
   ],
+  "author": "Masum Millat",
+  "repository": {
+    "url": "https://github.com/masummillat/Neutron-Editor.git."
+  },
+  "bugs": {
+    "url": "https://github.com/masummillat/Neutron-Editor/issues"
+  },
+  "homepage": "https://github.com/masummillat/Neutron-Editor#readme",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
