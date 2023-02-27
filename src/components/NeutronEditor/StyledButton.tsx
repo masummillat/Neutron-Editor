@@ -24,11 +24,12 @@ const StyledButton: React.FC<StyledButtonProps> = ({
       className={clsx(
         'inline-block cursor-pointer h-full',
         active && 'text-purple-700'
-      )}>
+      )}
+      style={{ color: active ? 'purple' : 'black' }}>
       {Icon ? (
         <Icon
           className={clsx(active && 'text-purple-700', ' inline-block')}
-          fill={active ? 'rgb(126 34 206/1)' : '#ffffff'}
+          fill={active ? 'purple' : 'white'}
         />
       ) : (
         label

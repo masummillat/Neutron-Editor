@@ -1,6 +1,7 @@
 import React from 'react';
 import { MediaInputPropmtProps } from '../NeutronEditor.types';
 import { AiOutlineClose } from 'react-icons/ai';
+import clsx from 'clsx';
 const MediaInputPrompt = React.forwardRef(
   (
     {
@@ -12,8 +13,9 @@ const MediaInputPrompt = React.forwardRef(
     }: MediaInputPropmtProps,
     ref: React.LegacyRef<HTMLInputElement> | undefined
   ) => (
-    <div className="h-full flex gap-2 items-center">
+    <div className={clsx('media-input-wrapper')}>
       <input
+        className={clsx('media-input')}
         autoFocus
         onChange={onURLChange}
         ref={ref}
@@ -29,7 +31,7 @@ const MediaInputPrompt = React.forwardRef(
       />
       <AiOutlineClose
         onClick={handleClose}
-        className="fill-red-600 hover:fill-red-500 cursor-pointer"
+        style={{ color: 'white', cursor: 'pointer' }}
       />
     </div>
   )

@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { BLOCK_TYPES } from './helperFunctions';
 import { BlockStyleControlsProps } from './NeutronEditor.types';
 import StyledButton from './StyledButton';
@@ -13,7 +14,7 @@ const BlockStyleControls: React.FC<BlockStyleControlsProps> = ({
     .getType();
 
   return (
-    <div className="flex gap-2">
+    <div className={clsx('block-style-button-container')}>
       {BLOCK_TYPES.map((type) => (
         <StyledButton
           key={type.label}

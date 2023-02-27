@@ -2,6 +2,7 @@ import { INLINE_STYLES } from './helperFunctions';
 import StyledButton from './StyledButton';
 import { InlineStyleControlsProps } from './NeutronEditor.types';
 import { BiLink, BiUnlink } from 'react-icons/bi';
+import clsx from 'clsx';
 
 const InlineStyleControls: React.FC<InlineStyleControlsProps> = ({
   editorState,
@@ -10,9 +11,9 @@ const InlineStyleControls: React.FC<InlineStyleControlsProps> = ({
   removeLink
 }) => {
   const currentStyle = editorState.getCurrentInlineStyle();
-  console.log(editorState.getSelection());
+
   return (
-    <div className="flex gap-2 items-center justify-center p-1 h-full">
+    <div className={clsx('tools-wrapper')}>
       {INLINE_STYLES.map((type) => (
         <StyledButton
           key={type.label}
@@ -23,14 +24,9 @@ const InlineStyleControls: React.FC<InlineStyleControlsProps> = ({
           icon={type.icon}
         />
       ))}
-      <BiLink
-        onClick={promptForLink}
-        className="align-baseline inline-block cursor-pointer"
-        fill="#ffffff"
-        color="red"
-      />
+      <BiLink onClick={promptForLink} className={clsx('icon')} />
 
-      <BiUnlink className="cursor-pointer" onMouseDown={removeLink} />
+      <BiUnlink className={clsx('icon')} onMouseDown={removeLink} />
     </div>
   );
 };

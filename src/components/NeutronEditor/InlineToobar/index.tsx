@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { EditorState, RichUtils } from 'draft-js';
 import React, { useRef, useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
@@ -94,17 +95,17 @@ const InlineToolbar: React.FC<InlineToolbarProps> = ({
   return (
     <div
       ref={clickOutSideRef}
-      className="absolute"
+      className={clsx('inline-toolbar')}
       style={{
-        top: position?.top - 100,
+        top: position?.top - 70,
         left: position?.left,
         zIndex: 1
       }}>
-      <div className={'bg-stone-900 text-white p-2 rounded-full '}>
+      <div className={clsx('inline-toolbar-wrapper')}>
         {showURLInput ? (
-          <div className="flex gap-2 items-center">
+          <div className="media-input-wrapper">
             <input
-              className="bg-stone-900 border-0 outline-none"
+              className={clsx('media-input')}
               onChange={onURLChange}
               type="text"
               value={urlValue}
@@ -113,7 +114,7 @@ const InlineToolbar: React.FC<InlineToolbarProps> = ({
               placeholder="Paste or type link here ..."
             />
             <AiOutlineClose
-              className="cursor-pointer"
+              className={clsx('icon')}
               onClick={handleCloseInlineToolbar}
             />
           </div>

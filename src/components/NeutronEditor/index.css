@@ -1,0 +1,91 @@
+.editor-container {
+  border: 1px solid gray;
+  padding: 1rem;
+  border-radius: 8px;
+  position: relative;
+  margin: 2rem;
+}
+.block-style-button-container {
+  display: flex;
+  gap: 0.5rem;
+}
+.editor-wrapper {
+  position: relative;
+  height: 100%;
+}
+.sidebar-toolbox {
+  position: absolute;
+  z-index: 1;
+}
+
+.sidebar-block-wrapper {
+  position: absolute;
+  left: 2.2rem;
+  top: 0;
+  background-color: black;
+  padding: 5px 10px;
+  border-radius: 9999px;
+}
+.block-icon-wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+.block-icon {
+  cursor: pointer;
+  color: rgb(13, 188, 147);
+}
+.block-icon:hover {
+  color: rgb(36, 224, 152);
+}
+
+.media-input-wrapper {
+  height: 100%;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.media-input {
+  background-color: transparent;
+  color: white;
+  padding: 4px;
+  outline: none;
+  border: none;
+}
+
+.inline-toolbar {
+  position: absolute;
+}
+.inline-toolbar-wrapper {
+  background-color: black;
+  padding: 5px 10px;
+  border-radius: 9999px;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tools-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.icon {
+  fill: white;
+  cursor: pointer;
+}
+.icon:hover {
+  fill: purple;
+}
+
+blockquote {
+  background-color: gainsboro;
+  padding: 1rem;
+  border-left: 3px solid red;
+  border-end-end-radius: 8px;
+  border-start-end-radius: 8px;
+}
+
+pre {
+  background-color: bisque;
+  padding: 4px;
+  margin: 0;
+}

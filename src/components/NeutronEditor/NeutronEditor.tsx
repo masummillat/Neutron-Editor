@@ -27,9 +27,11 @@ import HashtagSpan from './HashTagSpan';
 import SidebarToolbox from './SidebarToolbox';
 import InlineToolbar from './InlineToobar';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
-
+import './index.css';
+import clsx from 'clsx';
 const NeutronEditor: React.FC<NeutronEditorProps> = ({
-  placeholder = 'Write your story here ...'
+  placeholder = 'Write your story here ...',
+  editorContainerClassName
 }) => {
   const editorRef = useRef<any>();
   const [showInlineToolbar, setShowInlineToobar] = useState<boolean>(false);
@@ -46,7 +48,7 @@ const NeutronEditor: React.FC<NeutronEditorProps> = ({
     bottom: number;
   }>({
     top: 100,
-    left: -30,
+    left: -50,
     right: 0,
     bottom: 0
   });
@@ -116,9 +118,12 @@ const NeutronEditor: React.FC<NeutronEditorProps> = ({
     return JSON.stringify(raw, null, 2);
   };
   const onFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    const blockStyleHeight =
+      document.querySelector<HTMLElement>('.block-style')?.offsetHeight;
+    console.log(blockStyleHeight);
     setSideTBP((p) => ({
       ...p,
-      top: e?.target?.clientHeight - 20
+      top: e?.target?.clientHeight - (blockStyleHeight || 0) - 2
     }));
 
     setShowSideBarToolbox(true);
@@ -186,12 +191,14 @@ const NeutronEditor: React.FC<NeutronEditorProps> = ({
   return (
     <div
       ref={editorWrapperRef}
-      className="my-2 mx-8 relative prose lg:prose-xl">
-      <BlockStyleControls
-        editorState={editorState}
-        onToggle={toggleBlockType}
-      />
-      <div className="border border-gray-300 rounded h-auto p-2 relative ">
+      className={clsx('editor-container', editorContainerClassName)}>
+      <div className="block-style">
+        <BlockStyleControls
+          editorState={editorState}
+          onToggle={toggleBlockType}
+        />
+      </div>
+      <div className={clsx('editor-wrapper')}>
         <Editor
           onFocus={onFocus}
           onBlur={onBlur}

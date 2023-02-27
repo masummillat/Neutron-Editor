@@ -3,6 +3,7 @@ import { KeyboardEventHandler, ReactNode } from 'react';
 
 export interface NeutronEditorProps {
     placeholder?: string;
+    editorContainerClassName?: string;
 }
 
 export interface LinkProps {

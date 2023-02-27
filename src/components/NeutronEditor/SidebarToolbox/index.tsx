@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { AtomicBlockUtils, EditorState } from 'draft-js';
 import React, { useRef, useState } from 'react';
 import { BiPlusCircle } from 'react-icons/bi';
@@ -98,7 +99,7 @@ const SidebarToolbox: React.FC<SidebarToolboxProps> = ({
 
   return (
     <div
-      className="absolute"
+      className={clsx('sidebar-toolbox')}
       style={{
         left: sideTBP.left,
         top: sideTBP?.top
@@ -106,13 +107,11 @@ const SidebarToolbox: React.FC<SidebarToolboxProps> = ({
       <div className="relative" style={{ zIndex: 10 }}>
         <BiPlusCircle
           onClick={() => setShowMediaOption(true)}
-          className="fill-green-600 hover:fill-green-500"
+          className={clsx('block-icon')}
           size={30}
         />
         {showMediaOption && (
-          <div
-            ref={mediaWrapperRef}
-            className="absolute top-0 left-8 h-full  bg-white border border-gray-300 px-4 rounded-full">
+          <div ref={mediaWrapperRef} className={clsx('sidebar-block-wrapper')}>
             {showMediaInput ? (
               <MediaInputPrompt
                 mediaUrl={mediaUrl}
@@ -123,20 +122,20 @@ const SidebarToolbox: React.FC<SidebarToolboxProps> = ({
                 placeholder={getPlaceholder(mediaUrlType)}
               />
             ) : (
-              <div className="items-center flex gap-2 h-full">
+              <div className={clsx('block-icon-wrapper')}>
                 <MdAudiotrack
                   size={25}
-                  className="cursor-pointer fill-green-600 hover:fill-green-500"
+                  className={clsx('block-icon')}
                   onMouseDown={addAudio}
                 />
                 <MdVideoCameraFront
                   size={25}
-                  className="cursor-pointer fill-green-600 hover:fill-green-500"
+                  className={clsx('block-icon')}
                   onMouseDown={addVideo}
                 />
                 <MdImage
                   size={25}
-                  className="cursor-pointer fill-green-600 hover:fill-green-500"
+                  className={clsx('block-icon')}
                   onMouseDown={addImage}
                 />
               </div>
